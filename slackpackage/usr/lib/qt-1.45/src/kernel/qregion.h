@@ -69,8 +69,9 @@ public:
 // We also hide the xor() function if there is a #define for xor, in
 // case someone is using #define xor ^ to work around deficiencies in
 // their compiler that cause problems with some other header files.
-//
+
     QRegion eor( const QRegion & )	const;
+    QRegion xor( const QRegion & )	const;
 
     QRect   boundingRect() const;
     QArray<QRect> rects() const;
