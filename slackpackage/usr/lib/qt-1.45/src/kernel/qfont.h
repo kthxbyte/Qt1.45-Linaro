@@ -112,6 +112,8 @@ public:
     static void initialize();
     static void cleanup();
     static void cacheStatistics();
+    void	initFontInfo()	    const;
+    void	load( HANDLE=0 )    const;
 
 protected:
     bool	dirty()			const;
@@ -126,8 +128,6 @@ private:
     QFont( bool );
     void	init();
     void	detach();
-    void	initFontInfo()	    const;
-    void	load( HANDLE=0 )    const;
 #if defined(_WS_WIN_)
     HANDLE	create( bool *, HANDLE=0, bool=FALSE ) const;
     void       *textMetric()	    const;
