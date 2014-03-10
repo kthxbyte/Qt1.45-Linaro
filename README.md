@@ -18,7 +18,7 @@ installation will be required. Have fun!
 
 Changelog / Casualties
 ======================
-- QRegion::xor has been removed: g++ was screaming, I'm too lazy to 
+- QRegion::xor() has been removed: g++ was screaming, I'm too lazy to 
   deal with it AND the method was already deprecated in Qt 1.45!
 
 - QFont::initFontInfo() is now a public method (it used to be private!)
