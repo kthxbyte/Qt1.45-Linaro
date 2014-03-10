@@ -70,9 +70,6 @@ public:
 // case someone is using #define xor ^ to work around deficiencies in
 // their compiler that cause problems with some other header files.
 //
-#if !(defined(__STRICT_ANSI__) && defined(_CC_GNU_)) && !defined(_CC_EDG_) && !defined(_CC_HP_) && !defined(_CC_HP_ACC_) && !defined(_CC_USLC_) && !defined(_CC_MWERKS_) && !defined(xor)
-    QRegion xor( const QRegion & )	const;
-#endif
     QRegion eor( const QRegion & )	const;
 
     QRect   boundingRect() const;
