@@ -227,12 +227,3 @@ QDataStream &operator>>( QDataStream &s, QRegion &r )
     return s;
 }
 
-
-// OBSOLETE
-/*!
-  OBSOLETE - Use eor() instead.
-*/
-QRegion QRegion::xor( const QRegion &r ) const
-{
-    return eor(r);
-}

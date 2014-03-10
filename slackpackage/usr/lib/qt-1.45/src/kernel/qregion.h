@@ -57,21 +57,21 @@ public:
     QRegion intersect( const QRegion &) const;
     QRegion subtract( const QRegion & ) const;
 
-// Work around clash with the ANSI C++ keyword "xor".
+// Ah, screw QRegion::xor(). It's involved in the following situation:
 //
-// Use of QRegion::xor() is deprecated - you should use QRegion::eor().
-// Calls to QRegion::xor() will work for now, but give a warning.
+// g++ -c -I/usr/src/Qt1.45-Linaro/slackpackage/usr/lib/qt-1.45/include 
+// -I/usr/X11R6/include -pipe -O2 -fno-strength-reduce -O2 
+// -fno-strength-reduce -fPIC  -o kernel/qasyncimageio.o 
+// kernel/qasyncimageio.cpp
 //
-// If possible, compile the Qt library without this ANSI C++ feature enabled,
-// thus including both the old xor() and new eor() in the library, so old
-// binaries will continue to work (with the warning).
+// In file included from kernel/qpainter.h:33, from 
+// kernel/qasyncimageio.cpp:25:
+// kernel/qregion.h:74: error: expected unqualified-id before '^' token
 //
-// We also hide the xor() function if there is a #define for xor, in
-// case someone is using #define xor ^ to work around deficiencies in
-// their compiler that cause problems with some other header files.
+// Since QRegion::xor was already deprecated in Qt1.45, I'm not even 
+// dealing with it. Good riddance.
 
     QRegion eor( const QRegion & )	const;
-    QRegion xor( const QRegion & )	const;
 
     QRect   boundingRect() const;
     QArray<QRect> rects() const;
