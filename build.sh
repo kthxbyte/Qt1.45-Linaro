@@ -7,6 +7,7 @@ cp $MOCBUILD/moc $QT/bin/moc
 
 
 echo "Building at $QTDIR" 
+mkdir $QT/lib
 cd $QT
 make linux-g++-shared QTDIR=$PWD
 make QTDIR=$PWD
